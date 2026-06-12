@@ -325,8 +325,8 @@ SWIFT_CLASS("_TtC10MacInspect14KeyViewWrapper")
 SWIFT_CLASS("_TtC10MacInspect18NSVideoPreviewView")
 @interface NSVideoPreviewView : NSView
 - (void)layout;
-- (nonnull instancetype)initWithFrame:(NSRect)frameRect OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(NSRect)frameRect SWIFT_UNAVAILABLE;
 @end
 
 SWIFT_CLASS("_TtC10MacInspect25TrackpadMouseTrackingView")

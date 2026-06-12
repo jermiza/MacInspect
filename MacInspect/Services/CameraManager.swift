@@ -6,6 +6,8 @@ class CameraManager: ObservableObject {
     private let logger = Logger(subsystem: "com.macinspect.app", category: "Camera")
     
     let session = AVCaptureSession()
+    private let sessionQueue = DispatchQueue(label: "com.macinspect.app.sessionQueue")
+    
     @Published var isPermissionGranted = false
     @Published var isSessionRunning = false
     @Published var cameraError: String? = nil
@@ -38,11 +40,10 @@ class CameraManager: ObservableObject {
             logger.warning("Attempted to start camera session, but camera permission is not granted.")
             return
         }
-        guard !session.isRunning else { return }
         
-        // AVCaptureSession startRunning is a blocking call, execute on background queue
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+        sessionQueue.async { [weak self] in
             guard let self = self else { return }
+            guard !self.session.isRunning else { return }
             
             self.session.beginConfiguration()
             
@@ -89,10 +90,10 @@ class CameraManager: ObservableObject {
     }
     
     func stopSession() {
-        guard session.isRunning else { return }
-        
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+        sessionQueue.async { [weak self] in
             guard let self = self else { return }
+            guard self.session.isRunning else { return }
+            
             self.session.stopRunning()
             
             DispatchQueue.main.async {

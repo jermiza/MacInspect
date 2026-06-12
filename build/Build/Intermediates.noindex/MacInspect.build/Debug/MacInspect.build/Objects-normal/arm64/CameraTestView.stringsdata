@@ -31,7 +31,7 @@
         "key": "Camera Access Required",
         "location": {
           "startingColumn": 26,
-          "startingLine": 39
+          "startingLine": 36
         }
       },
       {
@@ -39,7 +39,7 @@
         "key": "Please grant camera permission in System Settings ➔ Privacy & Security ➔ Camera to perform this hardware test.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 42
+          "startingLine": 39
         }
       },
       {
@@ -47,7 +47,7 @@
         "key": "Grant Permission",
         "location": {
           "startingColumn": 28,
-          "startingLine": 48
+          "startingLine": 45
         }
       },
       {
@@ -55,7 +55,7 @@
         "key": "Camera Initialization Failed",
         "location": {
           "startingColumn": 26,
-          "startingLine": 64
+          "startingLine": 61
         }
       },
       {
@@ -63,7 +63,7 @@
         "key": "Connecting to camera stream...",
         "location": {
           "startingColumn": 38,
-          "startingLine": 88
+          "startingLine": 85
         }
       },
       {
@@ -71,7 +71,7 @@
         "key": "Is the camera preview running smoothly and displaying a clear picture?",
         "location": {
           "startingColumn": 22,
-          "startingLine": 108
+          "startingLine": 105
         }
       },
       {
@@ -79,7 +79,7 @@
         "key": "Distorted / Failed",
         "location": {
           "startingColumn": 34,
-          "startingLine": 124
+          "startingLine": 121
         }
       },
       {
@@ -87,7 +87,7 @@
         "key": "Camera Working",
         "location": {
           "startingColumn": 34,
-          "startingLine": 146
+          "startingLine": 143
         }
       },
       {
@@ -95,7 +95,7 @@
         "key": "Skip Test",
         "location": {
           "startingColumn": 24,
-          "startingLine": 170
+          "startingLine": 167
         }
       }
     ]

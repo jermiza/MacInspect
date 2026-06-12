@@ -167,28 +167,18 @@ struct FinalReportView: View {
     
     // Sharing utility
     private func shareReport() {
-        let tempUrl = FileManager.default.temporaryDirectory.appendingPathComponent("MacInspect_Report.pdf")
-        
         let view = PrintableReportView(manager: manager)
-        let hostingView = NSHostingView(rootView: view)
-        let pdfRect = NSRect(x: 0, y: 0, width: 612, height: 792)
-        hostingView.frame = pdfRect
-        hostingView.layoutSubtreeIfNeeded()
+        guard let tempUrl = manager.generateSharedPDFPath(view: AnyView(view)) else {
+            print("Failed to generate temporary PDF for sharing")
+            return
+        }
         
-        let pdfData = hostingView.dataWithPDF(inside: pdfRect)
-        
-        do {
-            try pdfData.write(to: tempUrl)
-            
-            // Invoke macOS Sharing picker
-            let picker = NSSharingServicePicker(items: [tempUrl])
-            if let window = NSApp.keyWindow {
-                // Approximate location in center screen for popover
-                let rect = NSRect(x: window.frame.width / 2, y: window.frame.height / 2, width: 1, height: 1)
-                picker.show(relativeTo: rect, of: window.contentView ?? NSView(), preferredEdge: .minY)
-            }
-        } catch {
-            print("Failed to save temporary PDF for sharing: \(error)")
+        // Invoke macOS Sharing picker
+        let picker = NSSharingServicePicker(items: [tempUrl])
+        if let window = NSApp.keyWindow {
+            // Approximate location in center screen for popover
+            let rect = NSRect(x: window.frame.width / 2, y: window.frame.height / 2, width: 1, height: 1)
+            picker.show(relativeTo: rect, of: window.contentView ?? NSView(), preferredEdge: .minY)
         }
     }
 }

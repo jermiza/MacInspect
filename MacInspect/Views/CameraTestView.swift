@@ -26,9 +26,6 @@ struct CameraTestView: View {
             
             if !permissionChecked {
                 ProgressView("Checking camera permissions...")
-                    .onAppear {
-                        checkPermissions()
-                    }
             } else if !hasPermission {
                 // Permission Denied View
                 VStack(spacing: 16) {
@@ -195,25 +192,26 @@ struct CameraTestView: View {
     }
 }
 
-// Custom NSView subclass that handles layout updates on the main thread safely
+// Custom AppKit layer-hosting view for video previews
 class NSVideoPreviewView: NSView {
-    private var previewLayer: AVCaptureVideoPreviewLayer?
-    
-    func setupPreviewLayer(session: AVCaptureSession) {
-        wantsLayer = true
-        layer?.backgroundColor = NSColor.black.cgColor
+    init(session: AVCaptureSession) {
+        super.init(frame: .zero)
         
-        let layer = AVCaptureVideoPreviewLayer(session: session)
-        layer.videoGravity = .resizeAspectFill
-        layer.autoresizingMask = [.layerWidthSizable, .layerHeightSizable]
-        layer.frame = bounds
-        self.layer?.addSublayer(layer)
-        self.previewLayer = layer
+        let previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        previewLayer.videoGravity = .resizeAspectFill
+        
+        // Use preview layer directly as the root backing layer of this view
+        self.layer = previewLayer
+        self.wantsLayer = true
     }
     
     override func layout() {
         super.layout()
-        previewLayer?.frame = bounds
+        self.layer?.frame = self.bounds
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -222,12 +220,10 @@ struct CameraPreviewView: NSViewRepresentable {
     @ObservedObject var cameraManager: CameraManager
     
     func makeNSView(context: Context) -> NSVideoPreviewView {
-        let view = NSVideoPreviewView()
-        view.setupPreviewLayer(session: cameraManager.session)
-        return view
+        return NSVideoPreviewView(session: cameraManager.session)
     }
     
     func updateNSView(_ nsView: NSVideoPreviewView, context: Context) {
-        // Layout updates are handled natively in layout() override
+        // AppKit automatically handles resizing of the root hosting layer
     }
 }

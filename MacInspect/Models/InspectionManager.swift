@@ -2,6 +2,7 @@ import SwiftUI
 import PDFKit
 import OSLog
 
+@MainActor
 class InspectionManager: ObservableObject {
     private let logger = Logger(subsystem: "com.macinspect.app", category: "Inspection")
     
@@ -103,31 +104,55 @@ class InspectionManager: ObservableObject {
         savePanel.nameFieldStringValue = "MacInspect_Report_\(systemInfo.model.replacingOccurrences(of: " ", with: "_")).pdf"
         savePanel.title = "Save MacInspect Report"
         
-        savePanel.begin { [weak self] response in
-            guard let self = self, response == .OK, let url = savePanel.url else { return }
-            
-            // Render SwiftUI view to PDF
-            let pdfData = self.renderViewToPDFData(view: printableReportView)
-            
-            do {
-                try pdfData?.write(to: url)
-                self.logger.log("Successfully saved report PDF to \(url.path).")
-            } catch {
-                self.logger.log("Error saving PDF: \(error.localizedDescription).")
-            }
+        // Show as a standalone modal dialog popup
+        let response = savePanel.runModal()
+        if response == .OK, let url = savePanel.url {
+            self.renderViewToPDF(view: printableReportView, to: url)
         }
     }
     
-    private func renderViewToPDFData(view: AnyView) -> Data? {
-        let hostingView = NSHostingView(rootView: view)
-        // Standard US Letter width: 612 pt, height: 792 pt
-        let pdfRect = NSRect(x: 0, y: 0, width: 612, height: 792)
-        hostingView.frame = pdfRect
+    func generateSharedPDFPath(view: AnyView) -> URL? {
+        let tempUrl = FileManager.default.temporaryDirectory.appendingPathComponent("MacInspect_Report.pdf")
         
-        // Ensure SwiftUI does layout
-        hostingView.layoutSubtreeIfNeeded()
+        // Delete old file if it exists
+        if FileManager.default.fileExists(atPath: tempUrl.path) {
+            try? FileManager.default.removeItem(at: tempUrl)
+        }
         
-        // Native macOS vector PDF generation
-        return hostingView.dataWithPDF(inside: pdfRect)
+        let renderer = ImageRenderer(content: view)
+        var mediaBox = CGRect(x: 0, y: 0, width: 612, height: 792)
+        
+        guard let pdfContext = CGContext(tempUrl as CFURL, mediaBox: &mediaBox, nil) else {
+            logger.error("Failed to create temporary PDF CGContext.")
+            return nil
+        }
+        
+        renderer.render { size, context in
+            pdfContext.beginPDFPage(nil)
+            context(pdfContext)
+            pdfContext.endPDFPage()
+            pdfContext.closePDF()
+        }
+        
+        return tempUrl
+    }
+    
+    private func renderViewToPDF(view: AnyView, to url: URL) {
+        let renderer = ImageRenderer(content: view)
+        var mediaBox = CGRect(x: 0, y: 0, width: 612, height: 792)
+        
+        guard let pdfContext = CGContext(url as CFURL, mediaBox: &mediaBox, nil) else {
+            logger.error("Failed to create PDF CGContext at: \(url.path)")
+            return
+        }
+        
+        renderer.render { size, context in
+            pdfContext.beginPDFPage(nil)
+            context(pdfContext)
+            pdfContext.endPDFPage()
+            pdfContext.closePDF()
+        }
+        
+        logger.log("Successfully saved report PDF to \(url.path).")
     }
 }
