@@ -105,7 +105,9 @@ struct DetailResolver: View {
             SystemInfoView()
         case "report":
             FinalReportView()
-        case "touchbar", "usb", "ssd", "deadpixel", "extdisplay":
+        case "usb":
+            USBTestView()
+        case "touchbar", "ssd", "deadpixel", "extdisplay":
             FutureTestsView(moduleId: moduleId)
         default:
             WelcomeView()

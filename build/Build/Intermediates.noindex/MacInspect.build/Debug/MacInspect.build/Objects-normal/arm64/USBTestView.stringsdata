@@ -1,0 +1,104 @@
+{
+  "source": "/Users/jermiza/Desktop/Mac Projects/MacInspect/MacInspect/Views/USBTestView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "USB Port Diagnostics",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 12
+        }
+      },
+      {
+        "comment": "",
+        "key": "Insert an external USB device (flash drive, mouse, keyboard, or adapter) to test port connectivity.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 15
+        }
+      },
+      {
+        "comment": "",
+        "key": "No External USB Devices Detected",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 34
+        }
+      },
+      {
+        "comment": "",
+        "key": "Plug in any USB accessory to test your computer's USB controller buses and ports in real time.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 38
+        }
+      },
+      {
+        "comment": "",
+        "key": "Detected USB Hardware (%lld)",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 57
+        }
+      },
+      {
+        "comment": "",
+        "key": "Port Active",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 85
+        }
+      },
+      {
+        "comment": "",
+        "key": "Vendor: %@ • Speed: %@",
+        "location": {
+          "startingColumn": 50,
+          "startingLine": 78
+        }
+      },
+      {
+        "comment": "",
+        "key": "Awaiting device connection...",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 118
+        }
+      },
+      {
+        "comment": "",
+        "key": "USB port connection verified successfully!",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 119
+        }
+      },
+      {
+        "comment": "",
+        "key": "No Response / Failed",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 135
+        }
+      },
+      {
+        "comment": "",
+        "key": "Ports Working",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 159
+        }
+      },
+      {
+        "comment": "",
+        "key": "Skip Test",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 183
+        }
+      }
+    ]
+  },
+  "version": 1
+}

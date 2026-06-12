@@ -15,6 +15,7 @@
 		3B0000030000000000000000 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0000030000000000000000 /* CameraManager.swift */; };
 		3B0000040000000000000000 /* BatteryReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0000040000000000000000 /* BatteryReader.swift */; };
 		3B0000050000000000000000 /* SystemInfoReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0000050000000000000000 /* SystemInfoReader.swift */; };
+		3B0000060000000000000000 /* USBReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0000060000000000000000 /* USBReader.swift */; };
 		4B0000010000000000000000 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0000010000000000000000 /* MainView.swift */; };
 		4B0000020000000000000000 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0000020000000000000000 /* WelcomeView.swift */; };
 		4B0000030000000000000000 /* KeyboardTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0000030000000000000000 /* KeyboardTestView.swift */; };
@@ -26,6 +27,7 @@
 		4B0000090000000000000000 /* BatteryTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0000090000000000000000 /* BatteryTestView.swift */; };
 		4B0000100000000000000000 /* SystemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0000100000000000000000 /* SystemInfoView.swift */; };
 		4B0000110000000000000000 /* FinalReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0000110000000000000000 /* FinalReportView.swift */; };
+		4B0000120000000000000000 /* USBTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0000120000000000000000 /* USBTestView.swift */; };
 		5B0000010000000000000000 /* FutureTestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000000000 /* FutureTestsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,7 @@
 		3A0000030000000000000000 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		3A0000040000000000000000 /* BatteryReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryReader.swift; sourceTree = "<group>"; };
 		3A0000050000000000000000 /* SystemInfoReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemInfoReader.swift; sourceTree = "<group>"; };
+		3A0000060000000000000000 /* USBReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USBReader.swift; sourceTree = "<group>"; };
 		4A0000010000000000000000 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4A0000020000000000000000 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		4A0000030000000000000000 /* KeyboardTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTestView.swift; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 		4A0000090000000000000000 /* BatteryTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryTestView.swift; sourceTree = "<group>"; };
 		4A0000100000000000000000 /* SystemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemInfoView.swift; sourceTree = "<group>"; };
 		4A0000110000000000000000 /* FinalReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalReportView.swift; sourceTree = "<group>"; };
+		4A0000120000000000000000 /* USBTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USBTestView.swift; sourceTree = "<group>"; };
 		5A0000010000000000000000 /* FutureTestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureTestsView.swift; sourceTree = "<group>"; };
 		6A0000010000000000000000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A0000020000000000000000 /* MacInspect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MacInspect.entitlements; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 				3A0000030000000000000000 /* CameraManager.swift */,
 				3A0000040000000000000000 /* BatteryReader.swift */,
 				3A0000050000000000000000 /* SystemInfoReader.swift */,
+				3A0000060000000000000000 /* USBReader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 				4A0000090000000000000000 /* BatteryTestView.swift */,
 				4A0000100000000000000000 /* SystemInfoView.swift */,
 				4A0000110000000000000000 /* FinalReportView.swift */,
+				4A0000120000000000000000 /* USBTestView.swift */,
 				260000000000000000000006 /* Placeholders */,
 			);
 			path = Views;
@@ -231,6 +237,8 @@
 				4B0000090000000000000000 /* BatteryTestView.swift in Sources */,
 				4B0000100000000000000000 /* SystemInfoView.swift in Sources */,
 				4B0000110000000000000000 /* FinalReportView.swift in Sources */,
+				4B0000120000000000000000 /* USBTestView.swift in Sources */,
+				3B0000060000000000000000 /* USBReader.swift in Sources */,
 				5B0000010000000000000000 /* FutureTestsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

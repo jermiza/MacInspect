@@ -6,7 +6,6 @@ import OSLog
 class InspectionManager: ObservableObject {
     private let logger = Logger(subsystem: "com.macinspect.app", category: "Inspection")
     
-    // Test Modules
     @Published var activeModules: [TestModule] = [
         TestModule(id: "keyboard", name: "Keyboard Test", iconName: "keyboard", maxScore: 15),
         TestModule(id: "display", name: "Display Test", iconName: "display", maxScore: 15),
@@ -14,12 +13,12 @@ class InspectionManager: ObservableObject {
         TestModule(id: "speaker", name: "Speaker Test", iconName: "speaker.wave.2", maxScore: 15),
         TestModule(id: "microphone", name: "Microphone Test", iconName: "mic", maxScore: 15),
         TestModule(id: "camera", name: "Camera Test", iconName: "camera", maxScore: 15),
+        TestModule(id: "usb", name: "USB Ports", iconName: "cable.connector", maxScore: 10),
         TestModule(id: "battery", name: "Battery Health", iconName: "battery.100", maxScore: 10)
     ]
     
     @Published var placeholderModules: [TestModule] = [
         TestModule(id: "touchbar", name: "Touch Bar", iconName: "hand.tap", status: .pending, maxScore: 0, isPlaceholder: true),
-        TestModule(id: "usb", name: "USB Ports", iconName: "cable.connector", status: .pending, maxScore: 0, isPlaceholder: true),
         TestModule(id: "ssd", name: "SSD Health", iconName: "internaldrive", status: .pending, maxScore: 0, isPlaceholder: true),
         TestModule(id: "deadpixel", name: "Auto Dead Pixel", iconName: "eye.glow", status: .pending, maxScore: 0, isPlaceholder: true),
         TestModule(id: "extdisplay", name: "External Display", iconName: "desktopcomputer", status: .pending, maxScore: 0, isPlaceholder: true)
