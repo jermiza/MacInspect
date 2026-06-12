@@ -14,8 +14,10 @@ class CameraManager: ObservableObject {
         let status = AVCaptureDevice.authorizationStatus(for: .video)
         switch status {
         case .authorized:
-            self.isPermissionGranted = true
-            completion(true)
+            DispatchQueue.main.async {
+                self.isPermissionGranted = true
+                completion(true)
+            }
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
                 DispatchQueue.main.async {
@@ -24,8 +26,10 @@ class CameraManager: ObservableObject {
                 }
             }
         default:
-            self.isPermissionGranted = false
-            completion(false)
+            DispatchQueue.main.async {
+                self.isPermissionGranted = false
+                completion(false)
+            }
         }
     }
     

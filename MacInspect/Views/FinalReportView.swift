@@ -379,7 +379,19 @@ struct PrintableReportView: View {
                     }
                     GridRow {
                         Text("Capacity Retention:").bold().font(.system(size: 10))
-                        Text(String(format: "%.1f%% of design capacity", manager.batteryInfo.maxCapacityPercent)).font(.system(size: 10))
+                        Text(String(format: "%.1f%% of design capacity (\(manager.batteryInfo.maxCapacity)/\(manager.batteryInfo.designCapacity) mAh)", manager.batteryInfo.maxCapacityPercent)).font(.system(size: 10))
+                    }
+                    GridRow {
+                        Text("Operating Temperature:").bold().font(.system(size: 10))
+                        Text(String(format: "%.1f°C", manager.batteryInfo.temperature)).font(.system(size: 10))
+                    }
+                    GridRow {
+                        Text("Voltage / Power:").bold().font(.system(size: 10))
+                        Text(String(format: "%.2f V / %@", manager.batteryInfo.voltage, manager.batteryInfo.isACConnected ? "AC Connected" : "Battery")).font(.system(size: 10))
+                    }
+                    GridRow {
+                        Text("Hardware Vendor:").bold().font(.system(size: 10))
+                        Text("\(manager.batteryInfo.manufacturer) (\(manager.batteryInfo.deviceName))").font(.system(size: 10))
                     }
                 }
             }

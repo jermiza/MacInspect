@@ -264,7 +264,7 @@ class FullscreenWindowController: NSObject, NSWindowDelegate {
         
         let newWindow = NSWindow(
             contentRect: screenRect,
-            styleMask: [.borderless, .fullScreen],
+            styleMask: [.borderless],
             backing: .buffered,
             defer: false
         )
@@ -274,20 +274,15 @@ class FullscreenWindowController: NSObject, NSWindowDelegate {
         newWindow.makeKeyAndOrderFront(nil)
         newWindow.delegate = self
         self.window = newWindow
-        
-        // Hide dock and menu bar during fullscreen test
-        NSApp.presentationOptions = [.hideDock, .hideMenuBar]
     }
     
     func close() {
         window?.close()
         window = nil
-        NSApp.presentationOptions = []
         onClose?()
     }
     
     func windowWillClose(_ notification: Notification) {
-        NSApp.presentationOptions = []
         onClose?()
     }
 }

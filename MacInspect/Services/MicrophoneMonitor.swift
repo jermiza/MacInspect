@@ -15,8 +15,10 @@ class MicrophoneMonitor: ObservableObject {
         let session = AVCaptureDevice.authorizationStatus(for: .audio)
         switch session {
         case .authorized:
-            self.isAuthorized = true
-            completion(true)
+            DispatchQueue.main.async {
+                self.isAuthorized = true
+                completion(true)
+            }
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .audio) { granted in
                 DispatchQueue.main.async {
@@ -25,8 +27,10 @@ class MicrophoneMonitor: ObservableObject {
                 }
             }
         default:
-            self.isAuthorized = false
-            completion(false)
+            DispatchQueue.main.async {
+                self.isAuthorized = false
+                completion(false)
+            }
         }
     }
     

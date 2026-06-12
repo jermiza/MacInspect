@@ -79,7 +79,7 @@
         "key": "Recalculate",
         "location": {
           "startingColumn": 24,
-          "startingLine": 117
+          "startingLine": 121
         }
       },
       {
@@ -87,7 +87,7 @@
         "key": "Confirm & Continue",
         "location": {
           "startingColumn": 26,
-          "startingLine": 144
+          "startingLine": 148
         }
       }
     ]

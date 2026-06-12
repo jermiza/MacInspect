@@ -51,6 +51,27 @@ class BatteryReader {
                     info.designCapacity = designCapacity
                 }
                 
+                // Read additional diagnostic values
+                if let tempRaw = dict["Temperature"] as? Int {
+                    let tempDouble = Double(tempRaw)
+                    if tempDouble > 1000.0 {
+                        // Kelvin tenths to Celsius
+                        info.temperature = (tempDouble / 10.0) - 273.15
+                    } else {
+                        // Celsius tenths
+                        info.temperature = tempDouble / 10.0
+                    }
+                }
+                
+                if let voltageRaw = dict["Voltage"] as? Int {
+                    info.voltage = Double(voltageRaw) / 1000.0 // millivolts to Volts
+                }
+                
+                info.isCharging = dict["IsCharging"] as? Bool ?? false
+                info.isACConnected = dict["ExternalConnected"] as? Bool ?? false
+                info.manufacturer = dict["Manufacturer"] as? String ?? "Apple OEM"
+                info.deviceName = dict["DeviceName"] as? String ?? "Built-in"
+                
                 // Determine health retention
                 if info.designCapacity > 0 {
                     info.maxCapacityPercent = (Double(info.maxCapacity) / Double(info.designCapacity)) * 100.0
@@ -67,7 +88,7 @@ class BatteryReader {
                     info.health = "Unknown"
                 }
                 
-                logger.log("AppleSmartBattery Properties read: CycleCount=\(cycleCount), MaxCapacity=\(maxCapacity), DesignCapacity=\(designCapacity), Health=\(info.health)")
+                logger.log("AppleSmartBattery Properties read: CycleCount=\(cycleCount), MaxCapacity=\(maxCapacity), DesignCapacity=\(designCapacity), Health=\(info.health), Temp=\(info.temperature)C, Volt=\(info.voltage)V")
             } else {
                 logger.error("Failed to query IORegistryEntryCreateCFProperties for AppleSmartBattery.")
             }

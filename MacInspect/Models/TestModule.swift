@@ -36,6 +36,14 @@ struct BatteryInfo: Codable {
     var designCapacity: Int = 0
     var currentCharge: Int = 0
     var maxCapacityPercent: Double = 0.0
+    
+    // Diagnostic specifications
+    var temperature: Double = 0.0
+    var voltage: Double = 0.0
+    var isCharging: Bool = false
+    var isACConnected: Bool = false
+    var manufacturer: String = "Unknown"
+    var deviceName: String = "Unknown"
 }
 
 struct SystemInfo: Codable {

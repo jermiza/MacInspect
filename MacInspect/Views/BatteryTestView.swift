@@ -95,9 +95,13 @@ struct BatteryTestView: View {
                     Divider()
                     
                     // Grid details
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
                         BatteryCard(title: "Maximum Capacity", value: "\(manager.batteryInfo.maxCapacity) mAh", description: "Current maximum charge holding capacity.")
                         BatteryCard(title: "Design Capacity", value: "\(manager.batteryInfo.designCapacity) mAh", description: "Factory brand new capacity design.")
+                        BatteryCard(title: "Battery Temp", value: String(format: "%.1f°C", manager.batteryInfo.temperature), description: "Current operating temperature of the cell.")
+                        BatteryCard(title: "Voltage", value: String(format: "%.2f V", manager.batteryInfo.voltage), description: "Measured terminal voltage across cells.")
+                        BatteryCard(title: "Power Source", value: manager.batteryInfo.isACConnected ? (manager.batteryInfo.isCharging ? "AC (Charging)" : "AC (Power)") : "Battery Power", description: "Current connected power supply.")
+                        BatteryCard(title: "Hardware Vendor", value: "\(manager.batteryInfo.manufacturer)", description: "Brand: \(manager.batteryInfo.deviceName)")
                     }
                 }
                 .padding(28)

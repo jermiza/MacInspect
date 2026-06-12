@@ -195,33 +195,39 @@ struct CameraTestView: View {
     }
 }
 
-// Representable wrapping AVCaptureVideoPreviewLayer
+// Custom NSView subclass that handles layout updates on the main thread safely
+class NSVideoPreviewView: NSView {
+    private var previewLayer: AVCaptureVideoPreviewLayer?
+    
+    func setupPreviewLayer(session: AVCaptureSession) {
+        wantsLayer = true
+        layer?.backgroundColor = NSColor.black.cgColor
+        
+        let layer = AVCaptureVideoPreviewLayer(session: session)
+        layer.videoGravity = .resizeAspectFill
+        layer.autoresizingMask = [.layerWidthSizable, .layerHeightSizable]
+        layer.frame = bounds
+        self.layer?.addSublayer(layer)
+        self.previewLayer = layer
+    }
+    
+    override func layout() {
+        super.layout()
+        previewLayer?.frame = bounds
+    }
+}
+
+// Representable wrapping NSVideoPreviewView
 struct CameraPreviewView: NSViewRepresentable {
     @ObservedObject var cameraManager: CameraManager
     
-    func makeNSView(context: Context) -> NSView {
-        let view = NSView()
-        view.wantsLayer = true
-        view.layer?.backgroundColor = NSColor.black.cgColor
-        
-        let previewLayer = AVCaptureVideoPreviewLayer(session: cameraManager.session)
-        previewLayer.videoGravity = .resizeAspectFill
-        previewLayer.autoresizingMask = [.layerWidthSizable, .layerHeightSizable]
-        
-        // Add layer safely
-        view.layer?.addSublayer(previewLayer)
-        
+    func makeNSView(context: Context) -> NSVideoPreviewView {
+        let view = NSVideoPreviewView()
+        view.setupPreviewLayer(session: cameraManager.session)
         return view
     }
     
-    func updateNSView(_ nsView: NSView, context: Context) {
-        // Update frame bounds explicitly on layout passes
-        if let sublayers = nsView.layer?.sublayers {
-            for layer in sublayers {
-                if let preview = layer as? AVCaptureVideoPreviewLayer {
-                    preview.frame = nsView.bounds
-                }
-            }
-        }
+    func updateNSView(_ nsView: NSVideoPreviewView, context: Context) {
+        // Layout updates are handled natively in layout() override
     }
 }
