@@ -1,0 +1,64 @@
+{
+  "source": "/Users/jermiza/Desktop/Mac Projects/MacInspect/MacInspect/Views/SystemInfoView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "System Specification Profile",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 10
+        }
+      },
+      {
+        "comment": "",
+        "key": "Retrieve detailed model, chipset, and hardware profiling metrics from the kernel.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 13
+        }
+      },
+      {
+        "comment": "",
+        "key": "Reading system trees and sysctl properties...",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 26
+        }
+      },
+      {
+        "comment": "",
+        "key": "Show Serial Number",
+        "location": {
+          "startingColumn": 58,
+          "startingLine": 72
+        }
+      },
+      {
+        "comment": "",
+        "key": "Hide Serial Number",
+        "location": {
+          "startingColumn": 81,
+          "startingLine": 72
+        }
+      },
+      {
+        "comment": "",
+        "key": "Serial Number",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 50
+        }
+      },
+      {
+        "comment": "",
+        "key": "Proceed to Summary Report",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 92
+        }
+      }
+    ]
+  },
+  "version": 1
+}

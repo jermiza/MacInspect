@@ -1,0 +1,23 @@
+{
+  "/Users/jermiza/Desktop/Mac Projects/MacInspect/MacInspect/Services/BatteryReader.swift" : {
+    "const-values" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/BatteryReader.swiftconstvalues",
+    "dependencies" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/BatteryReader.d",
+    "diagnostics" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/BatteryReader.dia",
+    "object" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/BatteryReader.o",
+    "swift-dependencies" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/BatteryReader.swiftdeps"
+  },
+  "/Users/jermiza/Desktop/Mac Projects/MacInspect/MacInspect/Services/SystemInfoReader.swift" : {
+    "const-values" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/SystemInfoReader.swiftconstvalues",
+    "dependencies" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/SystemInfoReader.d",
+    "diagnostics" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/SystemInfoReader.dia",
+    "object" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/SystemInfoReader.o",
+    "swift-dependencies" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/SystemInfoReader.swiftdeps"
+  },
+  "/Users/jermiza/Desktop/Mac Projects/MacInspect/MacInspect/Views/MainView.swift" : {
+    "const-values" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/MainView.swiftconstvalues",
+    "dependencies" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/MainView.d",
+    "diagnostics" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/MainView.dia",
+    "object" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/MainView.o",
+    "swift-dependencies" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/MainView.swiftdeps"
+  }
+}

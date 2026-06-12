@@ -1,0 +1,24 @@
+{
+  "source": "/Users/jermiza/Desktop/Mac Projects/MacInspect/MacInspect/Views/Placeholders/FutureTestsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Future Diagnostic Expansion",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 82
+        }
+      },
+      {
+        "comment": "",
+        "key": "TECHNICAL IMPLEMENTATION PATH:",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 101
+        }
+      }
+    ]
+  },
+  "version": 1
+}

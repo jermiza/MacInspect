@@ -1,0 +1,23 @@
+{
+  "/Users/jermiza/Desktop/Mac Projects/MacInspect/MacInspect/Services/CameraManager.swift" : {
+    "const-values" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/CameraManager.swiftconstvalues",
+    "dependencies" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/CameraManager.d",
+    "diagnostics" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/CameraManager.dia",
+    "object" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/CameraManager.o",
+    "swift-dependencies" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/CameraManager.swiftdeps"
+  },
+  "/Users/jermiza/Desktop/Mac Projects/MacInspect/MacInspect/Services/MicrophoneMonitor.swift" : {
+    "const-values" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/MicrophoneMonitor.swiftconstvalues",
+    "dependencies" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/MicrophoneMonitor.d",
+    "diagnostics" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/MicrophoneMonitor.dia",
+    "object" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/MicrophoneMonitor.o",
+    "swift-dependencies" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/MicrophoneMonitor.swiftdeps"
+  },
+  "/Users/jermiza/Desktop/Mac Projects/MacInspect/MacInspect/Services/ToneGenerator.swift" : {
+    "const-values" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/ToneGenerator.swiftconstvalues",
+    "dependencies" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/ToneGenerator.d",
+    "diagnostics" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/ToneGenerator.dia",
+    "object" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/ToneGenerator.o",
+    "swift-dependencies" : "/Users/jermiza/Desktop/Mac Projects/MacInspect/build/Build/Intermediates.noindex/MacInspect.build/Debug/MacInspect.build/Objects-normal/arm64/ToneGenerator.swiftdeps"
+  }
+}

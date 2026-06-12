@@ -1,0 +1,72 @@
+{
+  "source": "/Users/jermiza/Desktop/Mac Projects/MacInspect/MacInspect/Views/KeyboardTestView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Keyboard Layout Test",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 135
+        }
+      },
+      {
+        "comment": "",
+        "key": "Press all highlighted keys on your keyboard to verify functionality.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 138
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld%% Complete",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 146
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld / %lld Keys Tested",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 149
+        }
+      },
+      {
+        "comment": "",
+        "key": "Missing Keys (%lld)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 241
+        }
+      },
+      {
+        "comment": "",
+        "key": "Skip Test",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 277
+        }
+      },
+      {
+        "comment": "",
+        "key": "Finish & Continue",
+        "location": {
+          "startingColumn": 51,
+          "startingLine": 290
+        }
+      },
+      {
+        "comment": "",
+        "key": "Submit Partial & Continue",
+        "location": {
+          "startingColumn": 73,
+          "startingLine": 290
+        }
+      }
+    ]
+  },
+  "version": 1
+}

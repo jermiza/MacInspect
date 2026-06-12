@@ -1,0 +1,23 @@
+name: Build MacInspect
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    name: Build macOS App
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Xcode Version
+        run: |
+          xcodebuild -version
+
+      - name: Build MacInspect Application
+        run: |
+          xcodebuild -project MacInspect.xcodeproj -scheme MacInspect -configuration Release -destination 'platform=macOS' build
