@@ -136,19 +136,21 @@ struct DisplayTestView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
-    private var windowController = FullscreenWindowController()
+    @StateObject private var windowController = FullscreenWindowController()
     
     private func startFullscreenTest() {
         isTesting = true
         let view = ColorCycleView(onFinish: {
-            self.isTesting = false
-            self.windowController.close()
             DispatchQueue.main.async {
+                self.isTesting = false
+                self.windowController.close()
                 self.showResultConfirmation = true
             }
         })
         windowController.show(content: AnyView(view), onClose: {
-            self.isTesting = false
+            DispatchQueue.main.async {
+                self.isTesting = false
+            }
         })
     }
     
@@ -254,7 +256,7 @@ struct ColorCycleView: View {
 }
 
 // Custom Fullscreen Window Controller
-class FullscreenWindowController: NSObject, NSWindowDelegate {
+class FullscreenWindowController: NSObject, NSWindowDelegate, ObservableObject {
     var window: NSWindow?
     var onClose: (() -> Void)?
     
@@ -268,6 +270,7 @@ class FullscreenWindowController: NSObject, NSWindowDelegate {
             backing: .buffered,
             defer: false
         )
+        newWindow.isReleasedWhenClosed = false
         newWindow.level = .mainMenu + 1
         newWindow.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         newWindow.contentView = NSHostingView(rootView: content)
@@ -277,13 +280,20 @@ class FullscreenWindowController: NSObject, NSWindowDelegate {
     }
     
     func close() {
-        window?.close()
-        window = nil
-        onClose?()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.window?.delegate = nil
+            self.window?.contentView = nil
+            self.window?.close()
+            self.window = nil
+            self.onClose?()
+        }
     }
     
     func windowWillClose(_ notification: Notification) {
-        onClose?()
+        DispatchQueue.main.async { [weak self] in
+            self?.onClose?()
+        }
     }
 }
 

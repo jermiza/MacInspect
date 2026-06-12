@@ -38,17 +38,28 @@ class BatteryReader {
             
             if result == kIOReturnSuccess, let dict = properties?.takeRetainedValue() as? [String: Any] {
                 let cycleCount = dict["CycleCount"] as? Int ?? 0
-                let maxCapacity = dict["MaxCapacity"] as? Int ?? 0
-                let designCapacity = dict["DesignCapacity"] as? Int ?? 0
-                
                 info.cycleCount = cycleCount
                 
-                if maxCapacity > 0 {
-                    info.maxCapacity = maxCapacity
+                // On Apple Silicon, dict["MaxCapacity"] is often reported as a percentage (100)
+                // whereas the physical mAh maximum capacity is in "AppleRawMaxCapacity" or "NominalChargeCapacity".
+                var max = dict["AppleRawMaxCapacity"] as? Int ?? 0
+                if max <= 100 {
+                    max = dict["NominalChargeCapacity"] as? Int ?? 0
+                }
+                if max <= 100 {
+                    max = dict["MaxCapacity"] as? Int ?? 0
                 }
                 
-                if designCapacity > 0 {
-                    info.designCapacity = designCapacity
+                var design = dict["DesignCapacity"] as? Int ?? 0
+                if design <= 100 {
+                    design = dict["AppleRawDesignCapacity"] as? Int ?? 0
+                }
+                
+                if max > 0 {
+                    info.maxCapacity = max
+                }
+                if design > 0 {
+                    info.designCapacity = design
                 }
                 
                 // Read additional diagnostic values
@@ -88,7 +99,7 @@ class BatteryReader {
                     info.health = "Unknown"
                 }
                 
-                logger.log("AppleSmartBattery Properties read: CycleCount=\(cycleCount), MaxCapacity=\(maxCapacity), DesignCapacity=\(designCapacity), Health=\(info.health), Temp=\(info.temperature)C, Volt=\(info.voltage)V")
+                logger.log("AppleSmartBattery Properties read: CycleCount=\(cycleCount), MaxCapacity=\(info.maxCapacity), DesignCapacity=\(info.designCapacity), Health=\(info.health), Temp=\(info.temperature)C, Volt=\(info.voltage)V")
             } else {
                 logger.error("Failed to query IORegistryEntryCreateCFProperties for AppleSmartBattery.")
             }

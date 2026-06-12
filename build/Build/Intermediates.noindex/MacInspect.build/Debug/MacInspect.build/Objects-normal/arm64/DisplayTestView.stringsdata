@@ -87,7 +87,7 @@
         "key": "%@ Test Screen",
         "location": {
           "startingColumn": 30,
-          "startingLine": 198
+          "startingLine": 200
         }
       },
       {
@@ -95,7 +95,7 @@
         "key": "Step %lld of %lld",
         "location": {
           "startingColumn": 30,
-          "startingLine": 201
+          "startingLine": 203
         }
       }
     ]
