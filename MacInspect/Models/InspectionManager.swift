@@ -119,7 +119,7 @@ class InspectionManager: ObservableObject {
             try? FileManager.default.removeItem(at: tempUrl)
         }
         
-        let renderer = ImageRenderer(content: view)
+        let renderer = ImageRenderer(content: view.colorScheme(.light))
         var mediaBox = CGRect(x: 0, y: 0, width: 612, height: 792)
         
         guard let pdfContext = CGContext(tempUrl as CFURL, mediaBox: &mediaBox, nil) else {
@@ -138,7 +138,7 @@ class InspectionManager: ObservableObject {
     }
     
     private func renderViewToPDF(view: AnyView, to url: URL) {
-        let renderer = ImageRenderer(content: view)
+        let renderer = ImageRenderer(content: view.colorScheme(.light))
         var mediaBox = CGRect(x: 0, y: 0, width: 612, height: 792)
         
         guard let pdfContext = CGContext(url as CFURL, mediaBox: &mediaBox, nil) else {

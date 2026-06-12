@@ -90,6 +90,48 @@
 			<key>uniqueIdentifier</key>
 			<string>5A9CA87E-5F8D-49A2-8CA1-1DB956FBD0C8</string>
 		</dict>
+		<key>5E004ADE-C964-4649-A512-019E28DD829D</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>5E004ADE-C964-4649-A512-019E28DD829D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MacInspect project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>MacInspect</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project MacInspect with scheme MacInspect and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>802968756.42449796</real>
+			<key>timeStoppedRecording</key>
+			<real>802968759.45011604</real>
+			<key>title</key>
+			<string>Building project MacInspect with scheme MacInspect and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>5E004ADE-C964-4649-A512-019E28DD829D</string>
+		</dict>
 		<key>6A159868-B1ED-454B-8819-76A1635E24C6</key>
 		<dict>
 			<key>className</key>
@@ -131,6 +173,48 @@
 			<string>Building project MacInspect with scheme MacInspect and configuration Debug</string>
 			<key>uniqueIdentifier</key>
 			<string>6A159868-B1ED-454B-8819-76A1635E24C6</string>
+		</dict>
+		<key>78DA80AF-4A34-4CD0-A423-98F44F057661</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>78DA80AF-4A34-4CD0-A423-98F44F057661.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MacInspect project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>MacInspect</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project MacInspect with scheme MacInspect and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>802968734.95139503</real>
+			<key>timeStoppedRecording</key>
+			<real>802968736.728755</real>
+			<key>title</key>
+			<string>Building project MacInspect with scheme MacInspect and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>78DA80AF-4A34-4CD0-A423-98F44F057661</string>
 		</dict>
 		<key>CAC69FB7-3AE8-4AF1-94FC-EF989D45650F</key>
 		<dict>
