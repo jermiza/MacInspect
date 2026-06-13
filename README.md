@@ -20,6 +20,8 @@ The application runs a sequence of hardware validation tests, profiles battery h
   - **Microphone**: Live tap recording with logarithmic RMS amplitude analysis for decibel meters and vertical waveforms.
   - **Camera**: FaceTime camera previews utilizing `AVCaptureSession` background execution threads.
   - **Battery**: Smart battery registry interrogation (`AppleSmartBattery`) mapping current charge, cycles, design capacity, and health status.
+  - **USB Ports**: Monitors physical port plugins, speed classes (e.g. SuperSpeed, High Speed), and manufacturers dynamically in real-time.
+  - **Auto Dead Pixel**: Automatically cycles solid screen flushes in fullscreen and evaluates chromatic consistency on custom oscilloscope graphs using camera reflective feedback.
   - **System Specifications**: Unix `sysctl` kernel requests mapping RAM, processor brands, storage drives, and machine model identifiers.
 
 ---
@@ -42,7 +44,8 @@ MacInspect/
 │   │   ├── MicrophoneMonitor.swift# Realtime Input Amplitude Monitor
 │   │   ├── CameraManager.swift    # Video Session Stream Controller
 │   │   ├── BatteryReader.swift    # IOKit MacBook Battery Reader
-│   │   └── SystemInfoReader.swift # Unix Sysctl specs parser
+│   │   ├── SystemInfoReader.swift # Unix Sysctl specs parser
+│   │   └── USBReader.swift        # IOKit USB Bus scanner
 │   └── Views/
 │       ├── MainView.swift         # Sidebar Navigation Split View
 │       ├── WelcomeView.swift      # Welcomer & Onboarding View
@@ -52,6 +55,8 @@ MacInspect/
 │       ├── SpeakerTestView.swift   # Channel Audio Speaker Router
 │       ├── MicrophoneTestView.swift# Waveform Visualizer Screen
 │       ├── CameraTestView.swift   # Camera Feed Rendering Frame
+│       ├── USBTestView.swift      # Dynamic USB Port Diagnostic Monitor
+│       ├── AutoDeadPixelTestView.swift # Automated Chromatic Scanner View
 │       ├── BatteryTestView.swift  # Cycle & Capacity Dashboards
 │       ├── SystemInfoView.swift   # Specifications Summary
 │       ├── FinalReportView.swift  # Rating Cards & Vector PDF Compiler
@@ -90,6 +95,9 @@ To capture microphone audio and video feeds, the application requests standard m
 - **FaceTime Camera**: Uses `NSCameraUsageDescription` to describe preview intent and requests runtime permission on demand.
 - **Built-in Microphone**: Uses `NSMicrophoneUsageDescription` to capture live waveform inputs.
 - **Sandbox Rules**: The `MacInspect.entitlements` file defines:
-  - `com.apple.security.device.audio-input`: Allowed
-  - `com.apple.security.device.camera`: Allowed
-  - `com.apple.security.app-sandbox`: Enabled
+  - `com.apple.security.app-sandbox`: Enabled (Sandboxed application execution)
+  - `com.apple.security.device.audio-input`: Allowed (Microphone access)
+  - `com.apple.security.device.camera`: Allowed (FaceTime camera access)
+  - `com.apple.security.device.usb`: Allowed (USB Bus scanning and port monitoring)
+  - `com.apple.security.files.user-selected.read-write`: Allowed (File access for PDF report exporting)
+
