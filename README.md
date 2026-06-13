@@ -4,7 +4,29 @@ MacInspect is a native macOS diagnostic utility built in Swift and SwiftUI desig
 
 The application runs a sequence of hardware validation tests, profiles battery health, reads core system specifications, and outputs a professional vector PDF report document containing diagnostic validation certificates.
 
+## Installation & Usage
+
+### Option 1: Pre-compiled Release (For general users)
+1. Go to the **Releases** section on the GitHub repository page.
+2. Download the latest `MacInspect.zip` or `.dmg` file.
+3. Extract the ZIP archive (or mount the DMG) to obtain `MacInspect.app`.
+4. Drag and drop `MacInspect.app` into your `/Applications` folder.
+5. **Security Bypass (Gatekeeper)**: Since this app is signed locally without a paid Developer Certificate, macOS will show a security warning. To open it:
+   - **Right-click** (or Control-click) `MacInspect.app` in `/Applications` and select **Open**.
+   - Alternatively, go to **System Settings > Privacy & Security**, scroll down to the security section, and click **Open Anyway**.
+
+### Option 2: Compiling from Source (For developers)
+1. Clone this repository locally:
+   ```bash
+   git clone https://github.com/your-username/MacInspect.git
+   cd MacInspect
+   ```
+2. Open `MacInspect.xcodeproj` in Xcode.
+3. Select the `MacInspect` scheme and set the destination target to **My Mac**.
+4. Press `Cmd + R` to build and run the application.
+
 ---
+
 
 ## Technical Specifications & Features
 
