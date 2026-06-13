@@ -1,0 +1,32 @@
+# OS X
+.DS_Store
+
+# Xcode build products and intermediates
+build/
+DerivedData/
+
+# Xcode user settings
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+
+# Xcode workspaces
+*.xcworkspace
+!default.xcworkspace
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcshareddata/
+*.xcodeproj/xcshareddata/
+
+# CocoaPods / Swift Package Manager
+.swiftpm/
+.build/
+
+# Temp files
+*.tmp
+*.log
