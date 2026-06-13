@@ -28,6 +28,7 @@
 		4B0000100000000000000000 /* SystemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0000100000000000000000 /* SystemInfoView.swift */; };
 		4B0000110000000000000000 /* FinalReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0000110000000000000000 /* FinalReportView.swift */; };
 		4B0000120000000000000000 /* USBTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0000120000000000000000 /* USBTestView.swift */; };
+		4B0000130000000000000000 /* AutoDeadPixelTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0000130000000000000000 /* AutoDeadPixelTestView.swift */; };
 		5B0000010000000000000000 /* FutureTestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0000010000000000000000 /* FutureTestsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		4A0000100000000000000000 /* SystemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemInfoView.swift; sourceTree = "<group>"; };
 		4A0000110000000000000000 /* FinalReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalReportView.swift; sourceTree = "<group>"; };
 		4A0000120000000000000000 /* USBTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USBTestView.swift; sourceTree = "<group>"; };
+		4A0000130000000000000000 /* AutoDeadPixelTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoDeadPixelTestView.swift; sourceTree = "<group>"; };
 		5A0000010000000000000000 /* FutureTestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureTestsView.swift; sourceTree = "<group>"; };
 		6A0000010000000000000000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A0000020000000000000000 /* MacInspect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MacInspect.entitlements; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				4A0000100000000000000000 /* SystemInfoView.swift */,
 				4A0000110000000000000000 /* FinalReportView.swift */,
 				4A0000120000000000000000 /* USBTestView.swift */,
+				4A0000130000000000000000 /* AutoDeadPixelTestView.swift */,
 				260000000000000000000006 /* Placeholders */,
 			);
 			path = Views;
@@ -238,6 +241,7 @@
 				4B0000100000000000000000 /* SystemInfoView.swift in Sources */,
 				4B0000110000000000000000 /* FinalReportView.swift in Sources */,
 				4B0000120000000000000000 /* USBTestView.swift in Sources */,
+				4B0000130000000000000000 /* AutoDeadPixelTestView.swift in Sources */,
 				3B0000060000000000000000 /* USBReader.swift in Sources */,
 				5B0000010000000000000000 /* FutureTestsView.swift in Sources */,
 			);

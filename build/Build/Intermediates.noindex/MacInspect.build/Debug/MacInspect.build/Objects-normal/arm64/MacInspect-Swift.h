@@ -279,7 +279,9 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import AVFoundation;
 @import AppKit;
+@import CoreMedia;
 @import Foundation;
 @import ObjectiveC;
 #endif
@@ -303,6 +305,14 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
+
+@class AVCaptureOutput;
+@class AVCaptureConnection;
+SWIFT_CLASS("_TtC10MacInspect13CameraManager")
+@interface CameraManager : NSObject <AVCaptureVideoDataOutputSampleBufferDelegate>
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)captureOutput:(AVCaptureOutput * _Nonnull)output didOutputSampleBuffer:(CMSampleBufferRef _Nonnull)sampleBuffer fromConnection:(AVCaptureConnection * _Nonnull)connection;
+@end
 
 @class NSNotification;
 SWIFT_CLASS("_TtC10MacInspect26FullscreenWindowController")

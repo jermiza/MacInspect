@@ -9,6 +9,7 @@ class InspectionManager: ObservableObject {
     @Published var activeModules: [TestModule] = [
         TestModule(id: "keyboard", name: "Keyboard Test", iconName: "keyboard", maxScore: 15),
         TestModule(id: "display", name: "Display Test", iconName: "display", maxScore: 15),
+        TestModule(id: "deadpixel", name: "Auto Dead Pixel", iconName: "eye.glow", maxScore: 10),
         TestModule(id: "trackpad", name: "Trackpad Test", iconName: "hand.draw", maxScore: 15),
         TestModule(id: "speaker", name: "Speaker Test", iconName: "speaker.wave.2", maxScore: 15),
         TestModule(id: "microphone", name: "Microphone Test", iconName: "mic", maxScore: 15),
@@ -20,7 +21,6 @@ class InspectionManager: ObservableObject {
     @Published var placeholderModules: [TestModule] = [
         TestModule(id: "touchbar", name: "Touch Bar", iconName: "hand.tap", status: .pending, maxScore: 0, isPlaceholder: true),
         TestModule(id: "ssd", name: "SSD Health", iconName: "internaldrive", status: .pending, maxScore: 0, isPlaceholder: true),
-        TestModule(id: "deadpixel", name: "Auto Dead Pixel", iconName: "eye.glow", status: .pending, maxScore: 0, isPlaceholder: true),
         TestModule(id: "extdisplay", name: "External Display", iconName: "desktopcomputer", status: .pending, maxScore: 0, isPlaceholder: true)
     ]
     

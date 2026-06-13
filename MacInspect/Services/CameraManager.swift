@@ -1,8 +1,15 @@
 import Foundation
 import AVFoundation
 import OSLog
+import CoreMedia
+import CoreVideo
 
-class CameraManager: ObservableObject {
+class CameraManager: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+    override init() {
+        super.init()
+    }
+    
+
     private let logger = Logger(subsystem: "com.macinspect.app", category: "Camera")
     
     let session = AVCaptureSession()
@@ -11,6 +18,7 @@ class CameraManager: ObservableObject {
     @Published var isPermissionGranted = false
     @Published var isSessionRunning = false
     @Published var cameraError: String? = nil
+    @Published var currentAverageRGB: (r: Double, g: Double, b: Double) = (0.0, 0.0, 0.0)
     
     func checkPermission(completion: @escaping (Bool) -> Void) {
         let status = AVCaptureDevice.authorizationStatus(for: .video)
@@ -52,6 +60,11 @@ class CameraManager: ObservableObject {
                 self.session.removeInput(input)
             }
             
+            // Clear existing outputs
+            for output in self.session.outputs {
+                self.session.removeOutput(output)
+            }
+            
             // Resolve default camera device
             guard let videoDevice = AVCaptureDevice.default(for: .video) else {
                 DispatchQueue.main.async {
@@ -71,6 +84,15 @@ class CameraManager: ObservableObject {
                         self.cameraError = "Could not connect camera input."
                     }
                     self.logger.error("Unable to add video device input to capture session.")
+                }
+                
+                // Add video data output for processing frames
+                let videoDataOutput = AVCaptureVideoDataOutput()
+                videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
+                videoDataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "com.macinspect.app.videoDataOutputQueue"))
+                
+                if self.session.canAddOutput(videoDataOutput) {
+                    self.session.addOutput(videoDataOutput)
                 }
             } catch {
                 DispatchQueue.main.async {
@@ -99,6 +121,57 @@ class CameraManager: ObservableObject {
             DispatchQueue.main.async {
                 self.isSessionRunning = false
                 self.logger.log("AVCaptureSession stopped.")
+            }
+        }
+    }
+    
+    // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        
+        CVPixelBufferLockBaseAddress(imageBuffer, .readOnly)
+        defer { CVPixelBufferUnlockBaseAddress(imageBuffer, .readOnly) }
+        
+        let width = CVPixelBufferGetWidth(imageBuffer)
+        let height = CVPixelBufferGetHeight(imageBuffer)
+        guard let baseAddress = CVPixelBufferGetBaseAddress(imageBuffer) else { return }
+        
+        let bytesPerRow = CVPixelBufferGetBytesPerRow(imageBuffer)
+        let buffer = baseAddress.assumingMemoryBound(to: UInt8.self)
+        
+        var totalR: UInt64 = 0
+        var totalG: UInt64 = 0
+        var totalB: UInt64 = 0
+        
+        // Downsample pixels for fast computation (every 16th pixel)
+        let step = 16
+        var count = 0
+        
+        for y in stride(from: 0, to: height, by: step) {
+            let rowOffset = y * bytesPerRow
+            for x in stride(from: 0, to: width, by: step) {
+                let pixelOffset = rowOffset + x * 4
+                
+                // BGRA byte ordering
+                let b = buffer[pixelOffset]
+                let g = buffer[pixelOffset + 1]
+                let r = buffer[pixelOffset + 2]
+                
+                totalB += UInt64(b)
+                totalG += UInt64(g)
+                totalR += UInt64(r)
+                count += 1
+            }
+        }
+        
+        if count > 0 {
+            let avgR = Double(totalR) / Double(count) / 255.0
+            let avgG = Double(totalG) / Double(count) / 255.0
+            let avgB = Double(totalB) / Double(count) / 255.0
+            
+            DispatchQueue.main.async {
+                self.currentAverageRGB = (avgR, avgG, avgB)
             }
         }
     }
